@@ -47,6 +47,7 @@ class Schedule < Thing
         else
           week_start += 1.week
         end
+
         week_start_ymd = week_start.strftime("%Y-%m-%d")
         week_title = if week_number == 0
                        "Prerequisites"
@@ -57,7 +58,9 @@ class Schedule < Thing
         result = week + {week_number: week_number,
                          week_start: week_start,
                          week_title: week_title,
-                         week_start_ymd: week_start_ymd}
+                         week_start_ymd: week_start_ymd,
+                         week_end: week_start + 6.days
+        }
 
         week_number += 1
 
@@ -148,6 +151,17 @@ class Schedule < Thing
           }
 
           div(class: 'card-body', id: "card-body-#{week_start_ymd}") {
+
+            unless week_number == 0
+              div(class: 'card-body') {
+                gcal_id = @site.google_calendar_id
+                  + '%40group.calendar.google.com' # %40 means @
+                week_start_gcal = week_start.strftime("%Y%m%d")
+                week_end_gcal = week[:week_end].strftime("%Y%m%d")
+                text raw('<iframe src="https://calendar.google.com/calendar/b/1/embed?showTitle=0&amp;showNav=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=' + gcal_id + '&amp;color=%23B1440E&amp;ctz=America%2FNew_York&amp;dates=' + week_start_gcal + '%2f' + week_end_gcal + '" style="border-width:0" width="800" height="400" frameborder="0" scrolling="no"></iframe>')
+              }
+            end
+
             if week['description']
               div(class: 'card-text col') {
                 text week['description']

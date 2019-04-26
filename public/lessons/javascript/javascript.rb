@@ -53,10 +53,9 @@ Track::Javascript = Track.new(
   project name: "exercism_fork"
 
   lesson name: "intro"
-
   lesson name: "the_command_line"
 
-  lesson name: "/server_side_javascript/hello_node", description: "Build a simple 'Hello World' application in NodeJS and deploy it to Heroku."
+  lesson name: "/server_side_javascript/hello_express", description: "Build a simple 'Hello World' application in NodeJS and deploy it to Heroku."
 
   lesson name: "values"
   lesson name: "strings"
@@ -154,5 +153,9 @@ Track::Javascript = Track.new(
   link href: "https://www.theodinproject.com/courses/javascript"
 
   link href: "http://news.codecademy.com/your-guide-to-semicolons-in-javascript/"
+
+  # One-offs
+  # TODO: make a new track for these
+  lesson name: "take_a_minute_to_refactor_winner"
 
 end

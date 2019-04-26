@@ -1,22 +1,131 @@
-    link href: "https://vimeo.com/152746852",
-         name: "Terminal 101",
-         description: "intro to unix command-line by a former Turing School student"
-    link href: "https://www.learnenough.com/command-line-tutorial"
-    topic name: "terminal"
-    topic name: "command-line"
-    topic name: "node"
     topic name: "text-editor"
-    topic name: "directories"
-    link href: "https://www.macworld.co.uk/how-to/mac-software/mac-terminal-projects-tutorial-3613813/",
-         name: "30 Terminal tips, tricks and projects for Mac"
+    topic name: "console"
+    link name: 'How to Design Programs (preface)',
+         href: "https://htdp.org/2018-01-06/Book/part_preface.html"
+    link name: "Khan Academy: How Computers Work",
+            href: "https://www.khanacademy.org/computing/computer-science/how-computers-work2/v/khan-academy-and-codeorg-what-makes-a-computer-a-computer"
 
-# Parts of a Computer
+# Technical requirements
 
-* Input (keyboard, mouse, network)
-* Storage (disk drive aka *filesystem*)
-* Memory (RAM)
-* Processor (CPU)
-* Output (screen, sound, network)
+See the [Installfest](/projects/installfest) project for more instructions.
+
+Software:
+
+* a text editor (VS Code from Microsoft)
+* a JavaScript engine (NodeJS)
+* Git
+
+Accounts:
+
+* GitHub
+  * **Sign up** for an account at <https://github.com/>
+  * Add an SSH key to your GitHub account; follow these instructions: <https://help.github.com/articles/connecting-to-github-with-ssh/>
+* Heroku
+  * **Sign up** for an account at <https://signup.heroku.com>
+  * **Install** the Heroku Command Line Interface (CLI) at <https://devcenter.heroku.com/articles/heroku-cli>
+
+> If you do not have these, RAISE YOUR HAND!
+
+# A Taste of JavaScript Part 1: Intro
+
+You may never have coded before. Today you will.
+
+# What will we learn?
+
+In this class, you will learn about:
+
+*  Code and coding
+*  The command line and why we use it
+*  How to run your code interactively or from a file
+*  How to make a very simple website run on your own computer
+*  How to deploy your website to the cloud, where anyone in the world can visit
+
+Follow along online! Put a browser pointed at this site on one side of your screen, and Terminal on the other.
+
+# What if I know some of this already?
+
+* Pair up
+* Help your partner, help your neighbor
+* Docendo discimus ("By Teaching We Learn")
+* Promote yourself to TA
+
+> The best way to learn is to teach. <br>- [Latin proverb](https://en.wikipedia.org/wiki/Docendo_discimus)
+
+# What is code?
+
+Generally, *code* is something that stands for something else.
+
+Specifically, *source code* is a series of instructions that tell a computer what to do.
+
+> With computers, "code" is not about **secrets** -- it's about **symbols**.
+
+# What is coding?
+
+* coding is fun!
+* coding is frustrating!
+* coding is creative!
+* coding is communication
+  * between you and a computer
+  * between you and other coders
+  * between you and future you
+
+# What is coding NOT?
+
+* coding is **not** mathematical
+  * some logic (if / then / and / or / etc.)
+  * mostly just counting ("do this 10 times")
+* coding is **not** solitary
+  * most coding happens in a team
+  * all professional coding happens with clients / users / designers / managers etc.
+  * pair programming is awesome
+* coding is **not** about finding the right answer
+  * there's always more than one way to do it
+  * every solution has tradeoffs
+  * there is always a better way, and never a perfect way
+  * often the hardest part of coding is *defining* the problem, not solving it
+
+> "The only perfect program is an empty file." - Alex
+
+
+# A Program Is Like A Recipe
+
+* a recipe is a collection of *ingredients* and *instructions*
+
+![Grandma's Cookie Recipe](../images/cookie-recipe.gif)
+
+* a program is a collection of *data* (ingredients) and *code* (instructions)
+
+> When you are coding, you are not baking cookies; you are writing a recipe for how to make cookies.
+
+Writing a recipe involves trying out the recipe (baking a test batch), then tweaking the recipe and trying again and again until you get it right.
+
+(recipe from popcornpottery.com)
+
+# Languages
+
+* every program is written in a **language**
+  * like Java or Python or C or Fortran
+  * even HTML and CSS and SQL are languages
+  * computer languages all have very silly names
+* computer languages are very **specific** compared to natural languages
+* different languages are useful in different areas, but there is a lot of overlap
+* today we will learn the JavaScript programming language
+
+# Errors Are Awesome
+
+* Don't be afraid of errors
+* Your computer is trying to help you fix your program
+  * It's just *really* bad at communicating
+
+> If your code is a two-year-old child, then an error is a temper tantrum.
+
+(It can take effort to figure out the underlying reason why they're upset and fix it.)
+
+* It's not all gibberish
+* Try to read it -- really try! -- and pull out the pearls from the pig slop
+
+See also: [What went wrong?](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong) from MDN
+
 
 # The Command Line
 
@@ -50,8 +159,8 @@ See [this twitter thread](https://twitter.com/b0rk/status/980825751456047104) fo
 * to open your Terminal:
   * **Mac OS**: launch the "Terminal" application
   * **Windows**: launch the "Cmder" application (pronounced "Commander"), make a new console (<kbd>Ctrl</kbd>-<kbd>T</kbd>) and select
-     * Startup command: `{bash::bash}`
-     * Startup directory: `C:\Users\yourname`
+    * Startup command: `{bash::bash}`
+    * Startup directory: `C:\Users\yourname`
   * *Windows (alternate)*: Launch the Windows Command Prompt (`cmd.exe` or `Powershell`)
 * **Important:** make your terminal as **tall** as possible
   * when reading a program's output you want to start reading *at the top*...
@@ -99,28 +208,6 @@ From inside `node`, if you want to get back to the shell...
   * type <kbd>Ctrl</kbd>-<kbd>C</kbd> twice
   * or type `.exit` and <kbd>Enter</kbd>
 
-# When in doubt, try it out!
-
-From now on, whenever you see text in the `code font`, try typing it into the terminal and see what happens! For example:
-
-```javascript
-'pod' + 'cast'
-```
-
-If that doesn't print `'podcast'`, look at the prompt; you may be inside your shell instead of inside node.
-
-# Directories
-
-* a *directory* is a location on your hard disk
-  * also called a *folder*
-* directories can contain *files*
-* directories can also contain other directories (called *subdirectories*)
-
-# The Current Directory
-
-* inside the Terminal, you are *always* inside a directory
-* it is very important not to get lost! You must try to remember which directory you are in.
-
 # Where am I?
 
 It is very easy to get lost in a maze of directories.
@@ -141,54 +228,7 @@ This stands for "print working directory" (not "password").
   * create a `code` directory inside your home directory
   * create a new directory inside `code` for each lesson or project
 
-> WARNING: On some windows systems, Command Prompt will open to `C:\Windows\System32`. You can get back to your home directory by typing `cd %HOME%`
-
-# Listing Directory Contents
-
-* when you type `ls` ("list") it shows the contents of the current directory
-  * **On Windows** you may need to type `dir` instead
-  
-* if you type `ls -al` ("list all long") it also shows *hidden* files and *extra info* like the modification date
-  * **On Windows** you may need to type `dir /A:SH` instead
-  
-# Lab: Home Decor
-
-1. Using your desktop, navigate to your home directory and open it in a desktop window. 
-<br>(Your desktop is called "Finder" in MacOS, or "Explorer" in Windows)
-2. Using your terminal, list your home directory's contents.
-3. Look carefully at them both. What's the same? What's different?
-
-# Making a directory
-
-* when you type `mkdir` ("make directory") it creates a new *subdirectory* inside the current directory
-
-```bash
-mkdir code
-```
-
-# Changing directories
-
-* `cd` ("change dir") moves you into a different directory
-* For example, `cd code` would move you into a subdirectory named `code`
-* If you ever get lost, type `cd` all on its own and press the return key. This will send you back to your home directory.
-  * (unix shell only, not Windows)
-
-# Basic Command Review (Unix)
-
-* `pwd` ("print working dir") -- shows the name of the current directory
-* `ls` ("list") -- shows the contents of the current directory
-* `mkdir` ("make dir") -- creates a new subdirectory inside the current directory
-* `cd` ("change dir") -- move into a different directory
-
-> These apply to Mac / Unix / Linux / bash
-
-# Basic Command Review (DOS)
-
-* `cd` ("change dir") -- With no directory, it lists the current directory. Otherwise, it changes to the specified directory
-* `dir` ("directory") -- shows the contents of the current directory
-* `mkdir` ("make dir") -- creates a new subdirectory inside the current directory
-
-> These apply to Windows / DOS / PowerShell
+> WARNING: On some windows systems, Command Prompt will open to `C:\Windows\System32`
 
 # LAB: make a subdirectory and then enter it
 
@@ -200,22 +240,6 @@ mkdir code
    * **On Windows** use `cd`
 5. list its contents using `ls` (and note that it's empty)
    * **On Windows** use `dir`
-
-# Files
-
-* a file is a place on disk for storing stuff
-* "stuff" here could be anything at all
-  * documents, pictures, sounds, applications...
-* every file lives inside a directory
-
-# Text Editor
-
-* a text editor is a program that edits a text file
-* a text editor is *like* a word processor
-* but a text editor is **not** a word processor
-* You probably have *VS Code* <https://code.visualstudio.com/>
-  * others include *TextMate*, *Notepad++*, *Sublime Text*, *Vim*, *Emacs*, *Atom*
-  * but **NOT** *TextEdit* or *Wordpad* or *Microsoft Word*
 
 # Source File
 
@@ -234,9 +258,8 @@ Hello, World!
 
 # LAB: Hello, World
 
-1. Make sure you are in your `code` subdirectory using `pwd` or `cd`
+1. Make sure you are in your `code` subdirectory using `pwd` and/or `cd`
 2. Open this directory in your text editor
-    * for VSCode, use `code .` ("code dot")
 3. Create a file named `hello.js` using the *File > New* menu
 4. Inside this file, put the following source code:
 
@@ -248,31 +271,3 @@ Hello, World!
 7. Run this file using `node hello.js`
 
 What happens? Is this what you expected?
-
-# Command-Line Shortcuts
-
-These work in `bash`:
-
-![bash shortcuts](../images/bash-cursor-shortcuts.jpg)
-
-Also:
-
-* use <kbd>Esc</kbd> instead of <kbd>Alt</kbd> for the above
-* <kbd>Esc</kbd>-<kbd>Backspace</kbd> (delete previous word)
-* up/down arrow (scroll through history)
-* <kbd>End</kbd> and <kbd>Home</kbd> (jump to end or beginning of line)
-* <kbd>Tab</kbd> for auto-completion of filenames (e.g. typing `node h`<kbd>Tab</kbd> will emit `node hello.js`)
-
-<small>(image source: [Clément Chastagnol](https://clementc.github.io/blog/2018/01/25/moving_cli/))</small>
-
-# LAB: Next Steps
-
-Want to learn enough command line to be dangerous?
-Check out <https://www.learnenough.com/command-line-tutorial> by Michael Hartl (founder of [Tau Day](https://tauday.com/) and all around solid geek).
-
-Want to be a command-line hacker like in War Games?
-Play this game: <http://overthewire.org/wargames/bandit/> where you use *your real command line* `ssh` tool to connect to sandboxed hosts and infiltrate them.
-
-Want to learn the history of software user interfaces and operating systems? 
-Read [In The Beginning Was The Command Line](http://cristal.inria.fr/~weis/info/commandline.html) by Neal Stephenson
-

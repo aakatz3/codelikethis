@@ -6,7 +6,7 @@
 
 # Hello, Express!
 
-In this lesson you will create a trivial web application in Express and deploy it to Heroku, where it will be visible to everyone on the Internet. (Since Express is built on top of NodeJS, this lesson is very similar to the [Hello, Node!](./hello_node) lesson.)
+In this lesson you will create a trivial web application in [Express](https://expressjs.com/) and deploy it to Heroku, where it will be visible to everyone on the Internet. (Since Express is built on top of NodeJS, this lesson is very similar to the [Hello, Node!](./hello_node) lesson.)
 
 # Hello, File!
 
@@ -18,28 +18,23 @@ In this lesson you will create a trivial web application in Express and deploy i
 
 - run `npm install express` to load the *express* package into this project
 
-- Launch the Visual Studio Code text editor in this directory with `code .` (pronounced "Code Dot")
-  - if `code .` fails, launch VS Code, then type 
-    * MacOS: <kbd>CMD</kbd>-<kbd>SHIFT</kbd>-<kbd>P</kbd>
-    * Windows: <kbd>CTRL</kbd>-<kbd>SHIFT</kbd>-<kbd>P</kbd>
-  - then type "install" and select " **Install 'code' Command In Path** "
-  - then go back to the terminal and try `code .` again
+- Launch the Visual Studio Code text editor and open this `code` directory
 
-- Inside this directory make a file named `app.js` and fill it with the following code:
+- Inside this directory make a file named `server.js` and fill it with the following code:
 
-``` js
+```javascript
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000
 
-app.get('/', (request, response) => response.send('Hello World!'))
+app.get('/', (request, response) => response.send('Hello, World!'))
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Listening on port ${port}!`))
 ```
 
 # Hello, Localhost!
 
-- Go back to the Terminal and run the app with `node app.js`
+- Go back to the Terminal and run the app with `node server.js`
 
 - Visit <http://localhost:5000/> to see it running on your own computer.
 
@@ -53,7 +48,7 @@ In Code, open the file named `package.json` and add the `start` script line like
 {
   "name": "hello-express",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   }
 }
 ```
@@ -113,7 +108,7 @@ You deserve it!
 
 # Hello, You!
 
-Now go back to Code, and modify the app so instead of saying "Hello from NodeJS!" it says something clever and personalized.
+Now go back to Code, and modify the app so instead of saying "Hello, World!" it says something clever and personalized.
 
 Once you've made the change...
 
@@ -123,6 +118,32 @@ Once you've made the change...
 4. reload the web page and read your new message
 5. give yourself a high five!
 
+# Parameters in Express
+
+The special character `:` means "this is a [path parameter](./parameters#path_parameters)"
+
+Example:
+
+|  |  |
+|---|---|
+| Path:| `/hello/Gandalf` | 
+| Route:| `/hello/:friend` | 
+| Params:| `{friend: 'Gandalf'}` | 
+
+Express will grab the *value* from the path itself, and put it into the `request.params` object for you to use later.
+
+# Hello, Query Friend!
+
+Now change your "Hello, Express" server to also have the following route:
+
+```javascript
+app.get('/hello/:friend', (request, response)=> {
+    response.send('Hello, ' + request.params.friend + '!');
+});
+```
+
+Prove that it works by visiting <http://localhost:5000/hello/Gandalf> (or use your own name)
+
 # Resources
 
 Some other Node/Express tutorials:
@@ -131,4 +152,6 @@ Some other Node/Express tutorials:
 
 * <https://devcenter.heroku.com/articles/getting-started-with-nodejs>
 
+* <https://expressjs.com/>
 
+'
